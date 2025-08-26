@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact - Jérôme Chenallet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-white shadow-md z-50">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold">Mon Portfolio</h1>
+      <ul class="flex gap-6">
+        <li><a href="index.html" class="hover:text-blue-600 transition">Accueil</a></li>
+        <li><a href="projects.html" class="hover:text-blue-600 transition">Mes projets</a></li>
+        <li><a href="contact.html" class="text-blue-600 font-semibold">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section Contact -->
+  <section class="pt-32 pb-20 container mx-auto hidden-section">
+    <h2 class="text-4xl font-bold text-center mb-12">📬 Me contacter</h2>
+    <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow">
+      <form class="space-y-6" action="mailto:tonmail@example.com" method="POST" enctype="text/plain">
+        <div>
+          <label class="block font-semibold mb-2">Nom</label>
+          <input type="text" name="nom" class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+        </div>
+        <div>
+          <label class="block font-semibold mb-2">Email</label>
+          <input type="email" name="email" class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required>
+        </div>
+        <div>
+          <label class="block font-semibold mb-2">Message</label>
+          <textarea name="message" rows="5" class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" required></textarea>
+        </div>
+        <button type="submit" class="px-6 py-3 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition">
+          Envoyer
+        </button>
+      </form>
+      <div class="mt-10 text-center">
+        <p>📱 Retrouvez-moi sur :</p>
+        <div class="flex justify-center gap-6 mt-4">
+          <a href="https://linkedin.com" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a>
+          <a href="https://github.com" target="_blank" class="text-gray-800 hover:underline">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6 text-center">
+    <p>&copy; 2025 Jérôme Chenallet - Tous droits réservés</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

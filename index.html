@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio - Jérôme Chenallet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-white shadow-md z-50">
+    <nav class="container mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-bold">Mon Portfolio</h1>
+      <ul class="flex gap-6">
+        <li><a href="index.html" class="hover:text-blue-600 transition">Accueil</a></li>
+        <li><a href="projects.html" class="hover:text-blue-600 transition">Mes projets</a></li>
+        <li><a href="contact.html" class="hover:text-blue-600 transition">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-50 to-blue-200">
+    <h2 class="text-5xl font-bold mb-4 animate__animated animate__fadeInDown">Salut, moi c'est Jérôme 👋</h2>
+    <p class="text-xl max-w-2xl animate__animated animate__fadeInUp animate__delay-1s">
+      Étudiant passionné par le développement logiciel et les projets créatifs.  
+      Bienvenue sur mon portfolio où je partage mes compétences, mes projets et mon parcours.
+    </p>
+    <a href="projects.html" class="mt-8 px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition animate__animated animate__fadeInUp animate__delay-2s">
+      Découvrir mes projets
+    </a>
+  </section>
+
+  <!-- Compétences -->
+  <section class="py-20 bg-white hidden-section" id="competences">
+    <div class="container mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-10">💡 Mes compétences</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-100 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Développement Web</h4>
+          <p>HTML, CSS, Tailwind...</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Programmation</h4>
+          <p>C++, Python, SQL...</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-xl shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Gestion de projets</h4>
+          <p>Agile, UML, Git/GitHub, travail en équipe...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parcours -->
+  <section class="py-20 bg-gray-50 hidden-section" id="parcours">
+    <div class="container mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-10">🎓 Mon parcours</h3>
+      <div class="space-y-6 max-w-2xl mx-auto">
+        <div class="p-6 bg-white rounded-xl shadow text-left">
+          <h4 class="font-bold">2024 - En cours</h4>
+          <p>BUT Informatique - IUT Arles</p>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow text-left">
+          <h4 class="font-bold">2021 - 2024</h4>
+          <p>Baccalauréat Général - Spécialités Maths et NSI</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-6 text-center">
+    <p>&copy; 2025 Jérôme Chenallet - Tous droits réservés</p>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
