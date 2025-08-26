@@ -10,7 +10,7 @@
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-900 font-sans flex flex-col min-h-screen">
 
   <!-- Navbar -->
   <header class="fixed w-full bg-white shadow-md z-50">
@@ -25,7 +25,7 @@
   </header>
 
   <!-- Layout -->
-  <main class="pt-32 pb-20 container mx-auto flex gap-10">
+  <main class="pt-32 pb-20 container mx-auto flex gap-10 flex-grow">
 
     <!-- Sidebar Filtres -->
     <aside class="w-1/4 hidden-section">
@@ -63,10 +63,11 @@
           <option value="python">Python</option>
         </select>
       </div>
-        <!-- Bouton Reset -->
-      <button id="reset-filters" class="w-full bg-red-500 text-white font-semibold py-2 rounded-lg shadow hover:bg-red-600 transition">🔄 Réinitialiser
-        </button>
-
+      
+      <!-- Bouton Reset -->
+      <button id="reset-filters" class="w-full bg-red-500 text-white font-semibold py-2 rounded-lg shadow hover:bg-red-600 transition">
+        🔄 Réinitialiser
+      </button>
     </aside>
 
     <!-- Section Projets -->
@@ -104,24 +105,11 @@
         </div>
       </div>
 
-      <!-- Bloc Année 2023 -->
-      <div class="text-center">
-        <h2 class="text-3xl font-bold mb-10">📅 2023</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition project-card" 
-               data-year="2023" data-type="entreprise" data-lang="python">
-            <h3 class="text-2xl font-semibold mb-2">Site e-commerce</h3>
-            <p class="mb-4">Petit site de vente en ligne fait avec Python/Django.</p>
-            <a href="project4.html" class="text-blue-600 font-semibold hover:underline">Voir le projet →</a>
-          </div>
-        </div>
-      </div>
-
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-6 text-center">
+  <footer class="bg-gray-900 text-white py-6 text-center mt-auto">
     <p>&copy; 2025 Jérôme Chenallet - Tous droits réservés</p>
   </footer>
 
