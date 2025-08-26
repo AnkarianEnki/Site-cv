@@ -21,9 +21,11 @@ function filterProjects() {
     const matchLang = (selectedLang === "all" || cardLang === selectedLang);
 
     if (matchYear && matchType && matchLang) {
-      card.style.display = "block";
+      card.classList.remove("hide");
+      card.classList.add("show");
     } else {
-      card.style.display = "none";
+      card.classList.remove("show");
+      card.classList.add("hide");
     }
   });
 }
