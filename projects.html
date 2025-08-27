@@ -9,6 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- FontAwesome pour icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans flex flex-col min-h-screen">
 
@@ -38,7 +41,6 @@
           <option value="all">Toutes</option>
           <option value="2025">2025</option>
           <option value="2024">2024</option>
-          <option value="2023">2023</option>
         </select>
       </div>
 
@@ -61,6 +63,7 @@
           <option value="cpp">C++</option>
           <option value="sql">SQL</option>
           <option value="python">Python</option>
+          <option value="html">Html</option>
         </select>
       </div>
       
@@ -78,16 +81,30 @@
         <h2 class="text-3xl font-bold mb-10">📅 2025</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition project-card" 
-               data-year="2025" data-type="ecole" data-lang="cpp">
-            <h3 class="text-2xl font-semibold mb-2">Projet IA</h3>
-            <p class="mb-4">Application d’IA en C++/Qt pour le traitement de données.</p>
-            <a href="project1.html" class="text-blue-600 font-semibold hover:underline">Voir le projet →</a>
+               data-year="2025" data-type="entreprise" data-lang="html">
+            <h3 class="text-2xl font-semibold mb-2">Site web d'entreprise</h3>
+            <p class="mb-4">Site web pour une entreprise de pièce automobile.</p>
+            <div class="flex gap-4 justify-center">
+              <a href="https://github.com/Didoufer/Pieces_Auto_Rognac" target="_blank" class="text-gray-700 hover:text-black text-2xl">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://piecesautorognac.fr/" target="_blank" class="text-blue-600 hover:text-blue-800 text-2xl">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
           </div>
           <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition project-card" 
                data-year="2025" data-type="perso" data-lang="html">
             <h3 class="text-2xl font-semibold mb-2">Portfolio</h3>
             <p class="mb-4">Mon site portfolio développé en HTML, Tailwind et JS.</p>
-            <a href="project2.html" class="text-blue-600 font-semibold hover:underline">Voir le projet →</a>
+            <div class="flex gap-4 justify-center">
+              <a href="https://github.com/jerome/portfolio" target="_blank" class="text-gray-700 hover:text-black text-2xl">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://jerome-portfolio.com" target="_blank" class="text-blue-600 hover:text-blue-800 text-2xl">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -100,7 +117,14 @@
                data-year="2024" data-type="ecole" data-lang="sql">
             <h3 class="text-2xl font-semibold mb-2">Application de gestion</h3>
             <p class="mb-4">Logiciel en C++ pour gérer des factures avec base SQL.</p>
-            <a href="project3.html" class="text-blue-600 font-semibold hover:underline">Voir le projet →</a>
+            <div class="flex gap-4 justify-center">
+              <a href="https://github.com/jerome/app-gestion" target="_blank" class="text-gray-700 hover:text-black text-2xl">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://gestion-app.com" target="_blank" class="text-blue-600 hover:text-blue-800 text-2xl">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="transition-colors duration-500">
 <head>
   <meta charset="UTF-8" />
   <title>Portfolio - Jérôme Chenallet</title>
@@ -8,23 +8,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script>
+    // Configuration pour Tailwind dark mode
+    tailwind.config = {
+      darkMode: "class"
+    }
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-900 font-sans transition-colors duration-500">
 
   <!-- Navbar -->
-  <header class="fixed w-full bg-white shadow-md z-50">
+  <header class="fixed w-full bg-white dark:bg-gray-900 dark:text-gray-100 shadow-md z-50 transition-colors duration-500">
     <nav class="container mx-auto flex justify-between items-center p-4">
-      <h1 class="text-2xl font-bold">Mon Portfolio</h1>
-      <ul class="flex gap-6">
+      <h1 class="text-2xl font-bold">Jérôme Chenallet</h1>
+      <ul class="flex gap-6 items-center">
         <li><a href="index.html" class="hover:text-blue-600 transition">Accueil</a></li>
         <li><a href="projects.html" class="hover:text-blue-600 transition">Mes projets</a></li>
         <li><a href="contact.html" class="hover:text-blue-600 transition">Contact</a></li>
+        <!-- Bouton thème -->
+        <li>
+          <button id="theme-toggle" class="px-4 py-2 rounded-lg bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100 transition-colors duration-500 shadow hover:scale-105">
+            🌙 Mode sombre
+          </button>
+        </li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero -->
-  <section class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-50 to-blue-200">
+  <section class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-br from-blue-50 to-blue-200 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500 hidden-section">
     <h2 class="text-5xl font-bold mb-4 animate__animated animate__fadeInDown">Salut, moi c'est Jérôme 👋</h2>
     <p class="text-xl max-w-2xl animate__animated animate__fadeInUp animate__delay-1s">
       Étudiant passionné par le développement logiciel et les projets créatifs.  
@@ -35,20 +47,44 @@
     </a>
   </section>
 
+  <!-- À propos -->
+<section class="py-20 bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 hidden-section" id="about">
+  <div class="container mx-auto text-center max-w-3xl px-4">
+    <h3 class="text-3xl font-bold mb-10">👨‍💻 À propos de moi</h3>
+    <p class="text-lg leading-relaxed">
+      Je m’appelle <span class="font-semibold">Jérôme Chenallet</span>, étudiant en 
+      <span class="font-semibold">BUT Informatique à l’IUT d’Arles</span>. 
+      Après un baccalauréat général avec spécialités Maths et NSI, 
+      j’ai choisi de poursuivre dans le développement logiciel et les projets techniques.
+    </p>
+    <p class="mt-6 text-lg leading-relaxed">
+      Mon objectif est de devenir <span class="text-purple-500 dark:text-purple-300">développeur logiciel ou ingénieur en informatique</span>, 
+      avec une appétence particulière pour le <span class="font-semibold">C++</span>, le 
+      <span class="font-semibold">développement web</span> et la <span class="font-semibold">gestion de projets collaboratifs</span>.
+    </p>
+    <p class="mt-6 text-lg leading-relaxed">
+      Curieux et rigoureux, mes points forts résident dans ma capacité à 
+      <span class="text-purple-500 dark:text-purple-300">apprendre rapidement</span>, à travailler en équipe 
+      et à mettre en place des solutions efficaces et créatives.
+    </p>
+  </div>
+</section>
+
+
   <!-- Compétences -->
-  <section class="py-20 bg-white hidden-section" id="competences">
+  <section class="py-20 bg-white dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 hidden-section" id="competences">
     <div class="container mx-auto text-center">
       <h3 class="text-3xl font-bold mb-10">💡 Mes compétences</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-6 bg-gray-100 rounded-xl shadow hover:shadow-lg transition">
+        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-2">Développement Web</h4>
           <p>HTML, CSS, Tailwind...</p>
         </div>
-        <div class="p-6 bg-gray-100 rounded-xl shadow hover:shadow-lg transition">
+        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-2">Programmation</h4>
           <p>C++, Python, SQL...</p>
         </div>
-        <div class="p-6 bg-gray-100 rounded-xl shadow hover:shadow-lg transition">
+        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-2">Gestion de projets</h4>
           <p>Agile, UML, Git/GitHub, travail en équipe...</p>
         </div>
@@ -57,15 +93,15 @@
   </section>
 
   <!-- Parcours -->
-  <section class="py-20 bg-gray-50 hidden-section" id="parcours">
+  <section class="py-20 bg-gray-50 dark:bg-gray-800 dark:text-gray-100 transition-colors duration-500 hidden-section" id="parcours">
     <div class="container mx-auto text-center">
       <h3 class="text-3xl font-bold mb-10">🎓 Mon parcours</h3>
       <div class="space-y-6 max-w-2xl mx-auto">
-        <div class="p-6 bg-white rounded-xl shadow text-left">
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-left">
           <h4 class="font-bold">2024 - En cours</h4>
           <p>BUT Informatique - IUT Arles</p>
         </div>
-        <div class="p-6 bg-white rounded-xl shadow text-left">
+        <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-left">
           <h4 class="font-bold">2021 - 2024</h4>
           <p>Baccalauréat Général - Spécialités Maths et NSI</p>
         </div>
@@ -74,11 +110,11 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-6 text-center">
+  <footer class="bg-gray-900 dark:bg-gray-100 dark:text-gray-900 text-white py-6 text-center transition-colors duration-500">
     <p>&copy; 2025 Jérôme Chenallet - Tous droits réservés</p>
   </footer>
 
   <!-- Script -->
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
