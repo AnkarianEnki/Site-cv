@@ -1,11 +1,10 @@
-// --- Sélecteurs ---
 const yearFilter = document.getElementById("filter-year");
 const typeFilter = document.getElementById("filter-type");
 const langFilter = document.getElementById("filter-lang");
 const resetBtn = document.getElementById("reset-filters");
 const projectCards = document.querySelectorAll(".project-card");
 
-// --- Fonction de filtrage ---
+/* Fonction pour filtrer */
 function filterProjects() {
   const selectedYear = yearFilter.value;
   const selectedType = typeFilter.value;
@@ -30,7 +29,7 @@ function filterProjects() {
   });
 }
 
-// --- Réinitialisation des filtres ---
+/* Fonction reset */
 function resetFilters() {
   yearFilter.value = "all";
   typeFilter.value = "all";
@@ -38,7 +37,6 @@ function resetFilters() {
   filterProjects();
 }
 
-// --- Ajout des listeners ---
 yearFilter.addEventListener("change", filterProjects);
 typeFilter.addEventListener("change", filterProjects);
 langFilter.addEventListener("change", filterProjects);
