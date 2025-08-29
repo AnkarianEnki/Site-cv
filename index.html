@@ -14,7 +14,14 @@
   <header class="fixed w-full bg-white dark:bg-gray-900 dark:text-gray-100 shadow-md z-50 transition-colors duration-500">
     <nav class="container mx-auto flex justify-between items-center p-4">
       <h1 class="text-2xl font-bold">Jérôme Chenallet</h1>
-      <ul class="flex gap-6 items-center">
+
+      <!-- Bouton menu burger (mobile) -->
+      <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">
+        ☰
+      </button>
+
+      <!-- Menu -->
+      <ul id="menu" class="hidden md:flex gap-6 items-center flex-col md:flex-row absolute md:static top-16 left-0 w-full md:w-auto bg-white dark:bg-gray-900 md:bg-transparent shadow md:shadow-none p-4 md:p-0">
         <li><a href="index.html" class="hover:text-blue-600 transition">Accueil</a></li>
         <li><a href="projects.html" class="hover:text-blue-600 transition">Mes projets</a></li>
         <li><a href="contact.html" class="hover:text-blue-600 transition">Contact</a></li>
@@ -23,45 +30,44 @@
   </header>
 
   <!-- Haut de page -->
-<section class="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
+  <section class="relative h-screen flex flex-col justify-center items-center text-center overflow-hidden">
 
-  <div class="absolute inset-0 -z-10">
-    <div class="w-full h-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 animate-gradient-move"></div>
-  </div>
+    <div class="absolute inset-0 -z-10">
+      <div class="w-full h-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 animate-gradient-move"></div>
+    </div>
 
-  <h2 class="text-5xl font-bold mb-4 animate__animated animate__fadeInDown">Salut, moi c'est Jérôme 👋</h2>
-  <p class="text-xl max-w-2xl animate__animated animate__fadeInUp animate__delay-1s">
-    Étudiant passionné par le développement logiciel et les projets créatifs.  
-    Bienvenue sur mon portfolio où je partage mes compétences, mes projets et mon parcours.
-  </p>
-  <a href="projects.html" class="mt-8 px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition animate__animated animate__fadeInUp animate__delay-2s">
-    Découvrir mes projets
-  </a>
-</section>
+    <h2 class="text-5xl font-bold mb-4 animate__animated animate__fadeInDown">Salut, moi c'est Jérôme 👋</h2>
+    <p class="text-xl max-w-2xl animate__animated animate__fadeInUp animate__delay-1s">
+      Étudiant passionné par le développement logiciel et les projets créatifs.  
+      Bienvenue sur mon portfolio où je partage mes compétences, mes projets et mon parcours.
+    </p>
+    <a href="projects.html" class="mt-8 px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition animate__animated animate__fadeInUp animate__delay-2s">
+      Découvrir mes projets
+    </a>
+  </section>
 
   <!-- À propos -->
-<section class="py-20 bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 hidden-section" id="about">
-  <div class="container mx-auto text-center max-w-3xl px-4">
-    <h3 class="text-3xl font-bold mb-10">👨‍💻 À propos de moi</h3>
-    <p class="text-lg leading-relaxed">
-      Je m’appelle <span class="font-semibold">Jérôme Chenallet</span>, étudiant en 
-      <span class="font-semibold">BUT Informatique à l’IUT d’Arles</span>. 
-      Après un baccalauréat général avec spécialités Maths et NSI, 
-      j’ai choisi de poursuivre dans le développement logiciel et les projets techniques.
-    </p>
-    <p class="mt-6 text-lg leading-relaxed">
-      Mon objectif est de devenir <span class="text-purple-500 dark:text-purple-300">développeur logiciel ou ingénieur en informatique</span>, 
-      avec une appétence particulière pour le <span class="font-semibold">C++</span>, le 
-      <span class="font-semibold">développement web</span> et la <span class="font-semibold">gestion de projets collaboratifs</span>.
-    </p>
-    <p class="mt-6 text-lg leading-relaxed">
-      Curieux et rigoureux, mes points forts résident dans ma capacité à 
-      <span class="text-purple-500 dark:text-purple-300">apprendre rapidement</span>, à travailler en équipe 
-      et à mettre en place des solutions efficaces et créatives.
-    </p>
-  </div>
-</section>
-
+  <section class="py-20 bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 hidden-section" id="about">
+    <div class="container mx-auto text-center max-w-3xl px-4">
+      <h3 class="text-3xl font-bold mb-10">👨‍💻 À propos de moi</h3>
+      <p class="text-lg leading-relaxed">
+        Je m’appelle <span class="font-semibold">Jérôme Chenallet</span>, étudiant en 
+        <span class="font-semibold">BUT Informatique à l’IUT d’Arles</span>. 
+        Après un baccalauréat général avec spécialités Maths et NSI, 
+        j’ai choisi de poursuivre dans le développement de logiciel informatique et les projets techniques.
+      </p>
+      <p class="mt-6 text-lg leading-relaxed">
+        Mon objectif est de devenir <span class="text-purple-500 dark:text-purple-300">développeur logiciel ou ingénieur en informatique</span>, 
+        avec une appétence particulière pour le <span class="font-semibold">C++</span>, le 
+        <span class="font-semibold">développement web</span> et la <span class="font-semibold">gestion de projets collaboratifs</span>.
+      </p>
+      <p class="mt-6 text-lg leading-relaxed">
+        Curieux et rigoureux, mes points forts résident dans ma capacité à 
+        <span class="text-purple-500 dark:text-purple-300">apprendre rapidement</span>, à travailler en équipe 
+        et à mettre en place des solutions efficaces et créatives.
+      </p>
+    </div>
+  </section>
 
   <!-- Section Compétences -->
   <section class="py-20 bg-white dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 hidden-section" id="competences">
@@ -70,7 +76,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-2">Développement Web</h4>
-          <p>HTML, CSS, Tailwind...</p>
+          <p>HTML, CSS...</p>
         </div>
         <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition">
           <h4 class="text-xl font-semibold mb-2">Programmation</h4>
@@ -106,6 +112,26 @@
     <p>&copy; 2025 Jérôme Chenallet - Tous droits réservés</p>
   </footer>
 
-    <script src="script.js"></script>
+  <!-- Scripts -->
+  <script>
+    // Animation des sections
+    const sections = document.querySelectorAll(".hidden-section");
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show-section", "animate__animated", "animate__fadeInUp");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+
+    // Menu burger
+    const menuBtn = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu");
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
 </body>
 </html>
