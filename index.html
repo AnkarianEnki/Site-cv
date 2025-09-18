@@ -208,8 +208,11 @@
     </a>
   </section>
 
-  <!-- À propos -->
-  <section class="py-20 bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 hidden-section" id="about">
+    <!-- À propos -->
+  <section class="py-20 relative text-gray-900 transition-colors duration-500 hidden-section" id="about">
+    <div class="absolute inset-0 -z-10">
+      <div class="w-full h-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 animate-gradient-move"></div>
+    </div>
     <div class="container mx-auto text-center max-w-3xl px-4">
       <h3 class="text-3xl font-bold mb-10">👨‍💻 À propos de moi</h3>
       <p class="text-lg leading-relaxed">
@@ -219,32 +222,35 @@
         j'ai choisi de poursuivre dans le développement de logiciel informatique et les projets techniques.
       </p>
       <p class="mt-6 text-lg leading-relaxed">
-        Mon objectif est de devenir <span class="text-purple-500 dark:text-purple-300">développeur logiciel ou ingénieur en informatique</span>, 
+        Mon objectif est de devenir <span class="text-purple-700">développeur logiciel ou ingénieur en informatique</span>, 
         avec une appétence particulière pour le <span class="font-semibold">C++</span>, le 
         <span class="font-semibold">développement web</span> et la <span class="font-semibold">gestion de projets collaboratifs</span>.
       </p>
       <p class="mt-6 text-lg leading-relaxed">
         Curieux et rigoureux, mes points forts résident dans ma capacité à 
-        <span class="text-purple-500 dark:text-purple-300">apprendre rapidement</span>, à travailler en équipe 
+        <span class="text-purple-700">apprendre rapidement</span>, à travailler en équipe 
         et à mettre en place des solutions efficaces et créatives.
       </p>
     </div>
   </section>
 
   <!-- Section Compétences -->
-  <section class="py-20 bg-white dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 hidden-section" id="competences">
+  <section class="py-20 relative transition-colors duration-500 hidden-section" id="competences">
+    <div class="absolute inset-0 -z-10">
+      <div class="w-full h-full bg-gradient-to-r from-blue-50 via-blue-100 to-blue-50 animate-gradient-move"></div>
+    </div>
     <div class="container mx-auto text-center px-4">
       <h3 class="text-3xl font-bold mb-10">💡 Mes compétences</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition hover:scale-105 transform">
+        <div class="p-6 bg-white/60 backdrop-blur-md rounded-xl shadow hover:shadow-lg transition hover:scale-105 transform">
           <h4 class="text-xl font-semibold mb-2">Développement Web</h4>
           <p>HTML, CSS...</p>
         </div>
-        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition hover:scale-105 transform">
+        <div class="p-6 bg-white/60 backdrop-blur-md rounded-xl shadow hover:shadow-lg transition hover:scale-105 transform">
           <h4 class="text-xl font-semibold mb-2">Programmation</h4>
           <p>C++, Python, SQL...</p>
         </div>
-        <div class="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition hover:scale-105 transform">
+        <div class="p-6 bg-white/60 backdrop-blur-md rounded-xl shadow hover:shadow-lg transition hover:scale-105 transform">
           <h4 class="text-xl font-semibold mb-2">Gestion de projets</h4>
           <p>Agile, UML, Git/GitHub, travail en équipe...</p>
         </div>
@@ -253,15 +259,18 @@
   </section>
 
   <!-- Section Parcours -->
-  <section class="py-20 bg-gray-50 dark:bg-gray-800 dark:text-gray-100 transition-colors duration-500 hidden-section" id="parcours">
+  <section class="py-20 relative transition-colors duration-500 hidden-section" id="parcours">
+    <div class="absolute inset-0 -z-10">
+      <div class="w-full h-full bg-gradient-to-r from-blue-100 via-blue-200 to-blue-100 animate-gradient-move"></div>
+    </div>
     <div class="container mx-auto text-center px-4">
       <h3 class="text-3xl font-bold mb-10">🎓 Mon parcours</h3>
       <div class="space-y-6 max-w-2xl mx-auto">
-        <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-left hover:scale-105 transform transition-all duration-300">
+        <div class="p-6 bg-white/70 backdrop-blur-md rounded-xl shadow text-left hover:scale-105 transform transition-all duration-300">
           <h4 class="font-bold">2024 - En cours</h4>
           <p>BUT Informatique - IUT Arles</p>
         </div>
-        <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-left hover:scale-105 transform transition-all duration-300">
+        <div class="p-6 bg-white/70 backdrop-blur-md rounded-xl shadow text-left hover:scale-105 transform transition-all duration-300">
           <h4 class="font-bold">2021 - 2024</h4>
           <p>Baccalauréat Général - Spécialités Maths et NSI</p>
         </div>
@@ -269,9 +278,12 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 dark:bg-gray-100 dark:text-gray-900 text-white py-6 text-center transition-colors duration-500">
-    <p>&copy; 2025 Jérôme Chenallet - Tous droits réservés</p>
+    <!-- Footer -->
+  <footer class="relative text-gray-800 py-6 text-center rounded-t-2xl shadow-lg backdrop-blur-md">
+    <div class="absolute inset-0 -z-10 rounded-t-2xl">
+      <div class="w-full h-full bg-gradient-to-r from-blue-200 via-blue-300 to-blue-200 animate-gradient-move opacity-70 rounded-t-2xl"></div>
+    </div>
+    <p class="font-medium">&copy; 2025 Jérôme Chenallet - Tous droits réservés</p>
   </footer>
 
   <!-- Scripts -->
