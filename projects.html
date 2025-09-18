@@ -4,119 +4,394 @@
   <meta charset="UTF-8" />
   <title>Mes Projets - Jérôme Chenallet</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="projects.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    .nav-glass {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .nav-item {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .nav-item::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      transition: left 0.3s ease;
+    }
+    
+    .nav-item:hover::before {
+      left: 0;
+    }
+    
+    .nav-item.active::before {
+      left: 0;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+    }
+    
+    .logo-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .menu-toggle {
+      width: 30px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .menu-toggle span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .25s ease-in-out;
+    }
+    
+    .menu-toggle span:nth-child(1) {
+      top: 0px;
+    }
+    
+    .menu-toggle span:nth-child(2) {
+      top: 8px;
+    }
+    
+    .menu-toggle span:nth-child(3) {
+      top: 16px;
+    }
+    
+    .menu-toggle.open span:nth-child(1) {
+      top: 8px;
+      transform: rotate(135deg);
+    }
+    
+    .menu-toggle.open span:nth-child(2) {
+      opacity: 0;
+      left: -60px;
+    }
+    
+    .menu-toggle.open span:nth-child(3) {
+      top: 8px;
+      transform: rotate(-135deg);
+    }
+    
+    .floating-nav {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .hidden-section {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+    
+    .show-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .nav-mobile {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-mobile.show {
+      transform: translateX(0);
+    }
+    
+    .project-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+      background: rgba(255, 255, 255, 0.95);
+    }
+    
+    .filter-card {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .filter-select {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(102, 126, 234, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .filter-select:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+    
+    .hero-section {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans flex flex-col min-h-screen">
 
-  <!-- Barre de navigation -->
-  <header class="fixed w-full bg-white shadow-md z-50">
-    <nav class="container mx-auto flex justify-between items-center p-4">
-      <h1 class="text-2xl font-bold">Jérôme Chenallet</h1>
-      <ul class="flex gap-6">
-        <li><a href="index.html" class="hover:text-blue-600 transition">Accueil</a></li>
-        <li><a href="projects.html" class="text-blue-600 font-semibold">Mes projets</a></li>
-        <li><a href="contact.html" class="hover:text-blue-600 transition">Contact</a></li>
-      </ul>
+  <!-- Barre de navigation moderne -->
+  <header class="fixed w-full z-50 top-4">
+    <nav class="container mx-auto px-4">
+      <div class="nav-glass rounded-full px-8 py-4 mx-auto max-w-4xl floating-nav">
+        <div class="flex justify-between items-center">
+          <!-- Logo avec effet gradient -->
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center">
+              <span class="text-white font-bold text-lg">JC</span>
+            </div>
+            <h1 class="text-xl font-bold logo-text">Jérôme Chenallet</h1>
+          </div>
+
+          <!-- Menu desktop -->
+          <ul class="hidden md:flex items-center space-x-8">
+            <li class="nav-item">
+              <a href="index.html" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded-full hover:bg-white/20 transition-all duration-300">
+                Accueil
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="projects.html" class="text-gray-900 font-semibold py-2 px-4 rounded-full bg-white/30 transition-all duration-300">
+                Projets
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="text-gray-700 hover:text-gray-900 font-medium py-2 px-4 rounded-full hover:bg-white/20 transition-all duration-300">
+                Contact
+              </a>
+            </li>
+            <li>
+              <a href="#" class="gradient-bg text-white px-6 py-2 rounded-full hover:scale-105 transform transition-all duration-300 shadow-lg">
+                CV
+              </a>
+            </li>
+          </ul>
+
+          <!-- Bouton menu burger moderne -->
+          <div class="md:hidden menu-toggle" id="menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu mobile -->
+      <div id="mobile-menu" class="nav-mobile fixed top-0 left-0 w-full h-full nav-glass md:hidden">
+        <div class="flex flex-col justify-center items-center h-full space-y-8">
+          <a href="index.html" class="text-2xl font-medium text-gray-700 hover:text-gray-900 transition-colors">Accueil</a>
+          <a href="projects.html" class="text-2xl font-medium text-gray-900 font-bold">Projets</a>
+          <a href="contact.html" class="text-2xl font-medium text-gray-700 hover:text-gray-900 transition-colors">Contact</a>
+          <a href="#" class="gradient-bg text-white px-8 py-3 rounded-full text-xl hover:scale-105 transform transition-all duration-300">CV</a>
+        </div>
+      </div>
     </nav>
   </header>
 
-  <main class="pt-32 pb-20 container mx-auto flex gap-10 flex-grow">
+  <!-- Section héro -->
+  <section class="hero-section pt-32 pb-12">
+    <div class="container mx-auto text-center px-4">
+      <h2 class="text-4xl font-bold mb-4 animate__animated animate__fadeInDown">💼 Mes Projets</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto animate__animated animate__fadeInUp animate__delay-1s">
+        Découvrez mes réalisations techniques et créatives, des projets scolaires aux applications personnelles.
+      </p>
+    </div>
+  </section>
 
-    <aside class="w-1/4 hidden-section">
-      <h2 class="text-2xl font-bold mb-6">🔎 Filtres</h2>
+  <main class="pb-20 container mx-auto flex gap-10 flex-grow px-4">
 
-      <!-- Filtre par année -->
-      <div class="mb-8">
-        <h3 class="font-semibold mb-2">Année</h3>
-        <select id="filter-year" class="w-full border p-2 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-          <option value="all">Toutes</option>
-          <option value="2025">2025</option>
-          <option value="2024">2024</option>
-        </select>
+    <!-- Sidebar Filtres -->
+    <aside class="w-1/4 hidden lg:block hidden-section">
+      <div class="filter-card rounded-2xl p-6 sticky top-32">
+        <h2 class="text-2xl font-bold mb-6 flex items-center">
+          <span class="text-2xl mr-2">🔎</span>
+          Filtres
+        </h2>
+
+        <!-- Filtre par année -->
+        <div class="mb-6">
+          <h3 class="font-semibold mb-3 text-gray-700">📅 Année</h3>
+          <select id="filter-year" class="filter-select w-full p-3 rounded-xl focus:outline-none">
+            <option value="all">Toutes</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+          </select>
+        </div>
+
+        <!-- Filtre par type -->
+        <div class="mb-6">
+          <h3 class="font-semibold mb-3 text-gray-700">🏢 Type</h3>
+          <select id="filter-type" class="filter-select w-full p-3 rounded-xl focus:outline-none">
+            <option value="all">Tous</option>
+            <option value="ecole">École</option>
+            <option value="entreprise">Entreprise</option>
+            <option value="perso">Personnel</option>
+          </select>
+        </div>
+
+        <!-- Filtre par langage -->
+        <div class="mb-8">
+          <h3 class="font-semibold mb-3 text-gray-700">💻 Langage</h3>
+          <select id="filter-lang" class="filter-select w-full p-3 rounded-xl focus:outline-none">
+            <option value="all">Tous</option>
+            <option value="cpp">C++</option>
+            <option value="sql">SQL</option>
+            <option value="python">Python</option>
+            <option value="html">HTML/CSS</option>
+          </select>
+        </div>
+        
+        <button id="reset-filters" class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-3 rounded-xl shadow-lg hover:scale-105 transform transition-all duration-300">
+          🔄 Réinitialiser
+        </button>
       </div>
-
-      <!-- Filtre par type -->
-      <div class="mb-8">
-        <h3 class="font-semibold mb-2">Type</h3>
-        <select id="filter-type" class="w-full border p-2 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-          <option value="all">Tous</option>
-          <option value="ecole">École</option>
-          <option value="entreprise">Entreprise</option>
-          <option value="perso">Perso</option>
-        </select>
-      </div>
-
-      <!-- Filtre par langage -->
-      <div class="mb-8">
-        <h3 class="font-semibold mb-2">Langage</h3>
-        <select id="filter-lang" class="w-full border p-2 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
-          <option value="all">Tous</option>
-          <option value="cpp">C++</option>
-          <option value="sql">SQL</option>
-          <option value="python">Python</option>
-          <option value="html">Html</option>
-        </select>
-      </div>
-      
-      <button id="reset-filters" class="w-full bg-red-500 text-white font-semibold py-2 rounded-lg shadow hover:bg-red-600 transition">
-        🔄 Réinitialiser
-      </button>
     </aside>
 
     <!-- Section Projets -->
-    <section class="w-3/4 space-y-16 hidden-section" id="projects-container">
+    <section class="w-full lg:w-3/4 space-y-16 hidden-section" id="projects-container">
 
+      <!-- Projets 2025 -->
       <div class="text-center">
-        <h2 class="text-3xl font-bold mb-10">📅 2025</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition project-card" 
+        <div class="flex items-center justify-center mb-10">
+          <div class="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent flex-grow"></div>
+          <h2 class="text-3xl font-bold mx-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            📅 2025
+          </h2>
+          <div class="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent flex-grow"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="project-card p-8 rounded-2xl hover:shadow-lg transition-all duration-300" 
                data-year="2025" data-type="entreprise" data-lang="html">
-            <h3 class="text-2xl font-semibold mb-2">Site web d'entreprise</h3>
-            <p class="mb-4">Site web pour une entreprise de pièce automobile.</p>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mr-4">
+                <i class="fas fa-globe text-white text-xl"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-800">Site web d'entreprise</h3>
+                <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full">HTML/CSS</span>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Site web responsive pour une entreprise de pièces automobiles avec interface moderne et optimisée.
+            </p>
             <div class="flex gap-4 justify-center">
-              <a href="https://github.com/Didoufer/Pieces_Auto_Rognac" target="_blank" class="text-gray-700 hover:text-black text-2xl">
+              <a href="https://github.com/Didoufer/Pieces_Auto_Rognac" target="_blank" 
+                 class="flex items-center gap-2 bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105">
                 <i class="fab fa-github"></i>
+                <span>Code</span>
               </a>
-              <a href="https://piecesautorognac.fr/" target="_blank" class="text-blue-600 hover:text-blue-800 text-2xl">
+              <a href="https://piecesautorognac.fr/" target="_blank" 
+                 class="flex items-center gap-2 gradient-bg text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105">
                 <i class="fas fa-external-link-alt"></i>
+                <span>Demo</span>
               </a>
             </div>
           </div>
-          <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition project-card" 
+
+          <div class="project-card p-8 rounded-2xl hover:shadow-lg transition-all duration-300" 
                data-year="2025" data-type="perso" data-lang="html">
-            <h3 class="text-2xl font-semibold mb-2">Portfolio</h3>
-            <p class="mb-4">Mon site portfolio développé en HTML, css et JS.</p>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mr-4">
+                <i class="fas fa-user text-white text-xl"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-800">Portfolio Personnel</h3>
+                <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">HTML/CSS/JS</span>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Mon site portfolio développé avec des technologies web modernes, design responsive et animations fluides.
+            </p>
             <div class="flex gap-4 justify-center">
-              <a href="https://github.com/Didoufer/Site-cv" target="_blank" class="text-gray-700 hover:text-black text-2xl">
+              <a href="https://github.com/Didoufer/Site-cv" target="_blank" 
+                 class="flex items-center gap-2 bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105">
                 <i class="fab fa-github"></i>
+                <span>Code</span>
               </a>
-              <a href="https://portfoliochenallet.netlify.app/" target="_blank" class="text-blue-600 hover:text-blue-800 text-2xl">
+              <a href="https://portfoliochenallet.netlify.app/" target="_blank" 
+                 class="flex items-center gap-2 gradient-bg text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105">
                 <i class="fas fa-external-link-alt"></i>
+                <span>Demo</span>
               </a>
             </div>
           </div>
-          <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition project-card" 
+
+          <div class="project-card p-8 rounded-2xl hover:shadow-lg transition-all duration-300" 
                data-year="2025" data-type="perso" data-lang="python">
-            <h3 class="text-2xl font-semibold mb-2">Programme tri fichier</h3>
-            <p class="mb-4">Un programme en python pour trier des factures ou tout type de fichier.</p>
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mr-4">
+                <i class="fas fa-folder-open text-white text-xl"></i>
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-800">Programme tri fichier</h3>
+                <span class="text-sm bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Python</span>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Application Python automatisant le tri et l'organisation de fichiers selon des critères personnalisables.
+            </p>
             <div class="flex gap-4 justify-center">
-              <a href="https://github.com/Didoufer/Trie-fichier" target="_blank" class="text-gray-700 hover:text-black text-2xl">
+              <a href="https://github.com/Didoufer/Trie-fichier" target="_blank" 
+                 class="flex items-center gap-2 bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105">
                 <i class="fab fa-github"></i>
+                <span>Code</span>
               </a>
             </div>
           </div>
         </div>
       </div>
 
+      <!-- Projets 2024 -->
       <div class="text-center">
-        <h2 class="text-3xl font-bold mb-10">📅 2024</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
+        <div class="flex items-center justify-center mb-10">
+          <div class="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent flex-grow"></div>
+          <h2 class="text-3xl font-bold mx-6 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            📅 2024
+          </h2>
+          <div class="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent flex-grow"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="project-card p-8 rounded-2xl text-center">
+            <div class="text-6xl mb-4">🚧</div>
+            <h3 class="text-xl font-bold text-gray-600 mb-2">Projets à venir</h3>
+            <p class="text-gray-500">D'autres projets seront bientôt ajoutés ici...</p>
+          </div>
         </div>
       </div>
 
@@ -128,7 +403,87 @@
     <p>&copy; 2025 Jérôme Chenallet - Tous droits réservés</p>
   </footer>
 
-  <script src="script.js"></script>
-  <script src="projects.js"></script>
+  <script>
+    // Animation des sections
+    const sections = document.querySelectorAll(".hidden-section");
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show-section");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    sections.forEach(section => observer.observe(section));
+
+    // Menu burger moderne
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("open");
+      mobileMenu.classList.toggle("show");
+    });
+
+    // Fermer le menu mobile en cliquant sur un lien
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    mobileLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        menuBtn.classList.remove("open");
+        mobileMenu.classList.remove("show");
+      });
+    });
+
+    // Fonctionnalité de filtrage
+    const filterYear = document.getElementById("filter-year");
+    const filterType = document.getElementById("filter-type");
+    const filterLang = document.getElementById("filter-lang");
+    const resetFilters = document.getElementById("reset-filters");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    function filterProjects() {
+      const year = filterYear.value;
+      const type = filterType.value;
+      const lang = filterLang.value;
+
+      projectCards.forEach(card => {
+        const cardYear = card.getAttribute("data-year");
+        const cardType = card.getAttribute("data-type");
+        const cardLang = card.getAttribute("data-lang");
+
+        const yearMatch = year === "all" || cardYear === year;
+        const typeMatch = type === "all" || cardType === type;
+        const langMatch = lang === "all" || cardLang === lang;
+
+        if (yearMatch && typeMatch && langMatch) {
+          card.style.display = "block";
+          card.style.animation = "fadeIn 0.5s ease";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    filterYear.addEventListener("change", filterProjects);
+    filterType.addEventListener("change", filterProjects);
+    filterLang.addEventListener("change", filterProjects);
+
+    resetFilters.addEventListener("click", () => {
+      filterYear.value = "all";
+      filterType.value = "all";
+      filterLang.value = "all";
+      filterProjects();
+    });
+
+    // Ajouter l'animation fadeIn
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
